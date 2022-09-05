@@ -1,0 +1,87 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2638
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fmodern\fcharset0 CourierNewPSMT;\f1\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red0\green0\blue0;\red92\green248\blue7;
+\red50\green50\blue50;\red252\green51\blue51;\red254\green221\blue10;\red213\green242\blue66;}
+{\*\expandedcolortbl;;\csgray\c0\c0;\cssrgb\c0\c0\c0;\cssrgb\c40784\c95686\c0;
+\cssrgb\c25490\c25490\c25490;\cssrgb\c100000\c29804\c25490;\cssrgb\c100000\c88235\c0;\cssrgb\c86275\c94510\c32157;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww16820\viewh17540\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs28 \cf0 \cb2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3                                                                                                                                                                                                                         \
+  Souls Token Contract and Bot Protection                                                                                                                                                                               \
+                                                                                                                                                                                                                        \
+                                                                                                                                                                                                                        \
+#########################################                                                                                                                                                                               \
+ deploy contracts                                                                                                                                                                                                       \
+#########################################                                                                                                                                                                                                                                                                                                                               \
+\
+- Launch zaman\uc0\u305 nda Liquidity Vault\'92un olu\u351 umu s\u305 ras\u305 nda DEX \'fcst\'fcnde likidite olu\u351 turuldu\u287 u ve olu\u351 an pair adresinin souls token contract\u305 nda ilgili de\u287 i\u351 kene aktar\u305 ld\u305 \u287 \u305  g\'f6zlemlenmi\u351 tir.\
+                                                                                                                                                          \
+    \cf4 \strokec4   
+\f1 \uc0\u10004 
+\f0 \cf5 \strokec5  Creates DEX liquidity on launch\cf6 \strokec6  (6155ms)\cf0 \strokec3                                                                                                                                                                                   \
+                                                                                                                                                                                                                        \
+                                                                                                                                                                                                                        \
+#########################################                                                                                                                                                                               \
+ enable/disable trading                                                                                                                                                                                                 \
+#########################################                                                                                                                                                                               \
+\
+                                                                                                                                                                        \
+- Souls token contract\uc0\u305 nda likidite eklendikten sonra trading i\u351 leminin kapal\u305  oldu\u287 u g\'f6zlemlenmi\u351 tir. (tradingEnabled = false)\
+- Router contract \'fcst\'fcnden swap i\uc0\u351 lemi yap\u305 lmas\u305  denenmi\u351  ancak \'93Pancake: TRANSFER_FAILED\'94 hatas\u305  d\'f6nd\'fc\u287 \'fc g\'f6zlemlenmi\u351 tir.\
+    \cf4 \strokec4   
+\f1 \uc0\u10004 
+\f0 \cf5 \strokec5  Swapping tokens is not available when trading is disabled\cf7 \strokec7  (45ms)\cf0 \strokec3   \
+\
+                                                                                                                                              \
+- 3 manager hesap taraf\uc0\u305 ndan souls token contract\u305 nda trade i\u351 leminin aktifle\u351 tirilebildi\u287 i g\'f6zlemlenmi\u351 tir.                                                                                                                                                                          \
+    \cf4 \strokec4   
+\f1 \uc0\u10004 
+\f0 \cf5 \strokec5  Managers can enable trading by voting\cf6 \strokec6  (517ms)\cf0 \strokec3    \
+\
+                                                                                                                                                                \
+- 3 manager hesap taraf\uc0\u305 ndan trade i\u351 lemi aktifle\u351 tirilirken belirtilen trade ba\u351 lama zaman\u305 ndan \'f6nce swap i\u351 leminin yap\u305 lamad\u305 \u287 \u305  g\'f6zlemlenmi\u351 tir.                                                                                                                                                                        \
+    \cf4 \strokec4   
+\f1 \uc0\u10004 
+\f0 \cf5 \strokec5  Swapping tokens is not available when trading is enabled but before trading start time\cf0 \strokec3                                                                                                                           \
+\
+\
+- Trade ba\uc0\u351 lama zaman\u305 na ula\u351 \u305 ld\u305 ktan sonra 10 BUSD token SOULS tokena swap edilmesi denenmi\u351  ve i\u351 lemin ba\u351 ar\u305 l\u305  oldu\u287 u g\'f6zlemlenmi\u351 tir.                                                                                                                                                                 \
+    \cf4 \strokec4   
+\f1 \uc0\u10004 
+\f0 \cf5 \strokec5  Swapping tokens is available when trading is enabled and reach trading start time\cf6 \strokec6  (207ms)\cf0 \strokec3                                                                                                                        \
+\
+- 10 BUSD kar\uc0\u351 \u305 l\u305 \u287 \u305  al\u305 nan SOULS tokenlar\u305 n tekrar BUSD tokena swap edilebildi\u287 i g\'f6zlemlenmi\u351 tir.\
+    \cf4 \strokec4   
+\f1 \uc0\u10004 
+\f0 \cf5 \strokec5  Can sell back token before reacing balance limit of bot protection\cf6 \strokec6  (191ms)\cf0 \strokec3                                                                                                                                       \
+\
+- Herhangi bir hesap i\'e7in bot protection \'fcst limiti kadar SOULS token sat\uc0\u305 n al\u305 nm\u305 \u351  ve hesab\u305 n hala bot protection kapsam\u305 na girmedi\u287 i g\'f6zlemlenmi\u351 tir.\
+- Sat\uc0\u305 n al\u305 nm\u305 \u351  olan tokenlar\u305 n \cb2 \outl0\strokewidth0 5000 tanesi ba\uc0\u351 ka bir hesaba transfer edilmi\u351 tir.\cb2 \outl0\strokewidth0 \strokec3 \
+- Sat\uc0\u305 n al\u305 nm\u305 \u351  olan SOULS tokenlar\u305 n 5000 tanesi ba\u351 ka bir hesaba transfer edilmi\u351  olmas\u305 na ra\u287 men  1 tane daha SOULS token al\u305 nd\u305 \u287 \u305 nda hesab\u305 n bot protection kapsam\u305 na girdi\u287 i g\'f6zlemlenmi\u351 tir.                                                                                                                                                              \
+    \cf4 \strokec4   
+\f1 \uc0\u10004 
+\f0 \cf5 \strokec5  Activates bot protection for wallet when balance exeeds the limit\cf6 \strokec6  (383ms)\cf0 \strokec3                                                                                                                                        \
+\
+- Bot protection kapsam\uc0\u305 na giren hesapla sat\u305 \u351 a izin verilen maksimum miktardan 1 tane fazlas\u305  sat\u305 lmak istendi\u287 inde i\u351 lemin ba\u351 ar\u305 s\u305 z oldu\u287 u g\'f6zlemlenmi\u351 tir.                                                                                                                                                                             \
+    \cf4 \strokec4   
+\f1 \uc0\u10004 
+\f0 \cf5 \strokec5  Cannot sell more than allowed amount when bot protection is activated\cf0 \strokec3                                                                                                                                            \
+\
+- Bot protection kapsam\uc0\u305 na giren hesapla \'fcst limit miktar\u305 nda token sat\u305 ld\u305 ktan sonra tekrar ayn\u305  miktarda token sat\u305 lmas\u305  denendi\u287 inde i\u351 lemin ba\u351 ar\u305 s\u305 z oldu\u287 u g\'f6zlemlenmi\u351 tir.\
+- Sat\uc0\u305 \u351 lar aras\u305  ge\'e7mesi gereken s\'fcre sim\'fcle edildikten sonra tekrar sat\u305 \u351  yap\u305 lmas\u305  denendi\u287 inde i\u351 lemin ba\u351 ar\u305 l\u305  oldu\u287 u g\'f6zlemlenmi\u351 tir.\
+    \cf4 \strokec4   
+\f1 \uc0\u10004 
+\f0 \cf5 \strokec5  Must wait until unlock time after every sell\cf6 \strokec6  (879ms)\cf0 \strokec3                                                                                                                                                             \
+\
+- 3 manager hesap taraf\uc0\u305 ndan trade i\u351 leminin pasif hale getirilebildi\u287 i g\'f6zlemlenmi\u351 tir.                                                                                                                                                                         \
+    \cf4 \strokec4   
+\f1 \uc0\u10004 
+\f0 \cf5 \strokec5  Managers can disable trading by voting\cf6 \strokec6  (498ms)\cf0 \strokec3                                                                                                                                                                   \
+                                                                                                                                                                                                                        \
+                                                                                                                                                                                                                        \
+\pard\pardeftab720\partightenfactor0
+\cf8 \strokec8  \cf4 \strokec4  10 passing\cf5 \strokec5  (15s)\cf0 \strokec3                            \
+}

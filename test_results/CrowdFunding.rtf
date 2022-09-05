@@ -1,0 +1,284 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2638
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fmodern\fcharset0 CourierNewPSMT;\f1\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red0\green0\blue0;\red255\green255\blue255;
+\red92\green248\blue7;\red50\green50\blue50;\red252\green51\blue51;\red251\green2\blue7;\red251\green2\blue7;
+\red213\green242\blue66;}
+{\*\expandedcolortbl;;\csgray\c0\c0;\cssrgb\c0\c0\c0;\cssrgb\c100000\c100000\c100000\c0;
+\cssrgb\c40784\c95686\c0;\cssrgb\c25490\c25490\c25490;\cssrgb\c100000\c29804\c25490;\cssrgb\c100000\c14913\c0;\cssrgb\c100000\c14913\c0;
+\cssrgb\c86275\c94510\c32157;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww20360\viewh20460\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs28 \cf0 \cb2 \expnd0\expndtw0\kerning0
+  CrowdFunding Contract                                                                                                                                                                                                                                                                                     \
+\
+- Strategic sale, Seed sale, Private Sale, Public Sale ve Airdrop i\'e7in ayr\uc0\u305  ayr\u305  deploy edilecek \u351 ekilde tasarlanm\u305 \u351  ve ilgili crowdfunding ismini i\'e7eren bir name parametresine sahiptir.\
+\
+- Claim tan\uc0\u305 mlamas\u305  yap\u305 lmas\u305  s\u305 ras\u305 nda souls tokenlar\u305 n \'e7ekilece\u287 i adres (b\'fcy\'fck ihtimalle proxy adresi) fonksiyonun son parametresi olarak g\'f6nderilir. \u304 htiya\'e7 duyulan SOULS token bu adresten \'e7ekilir. \
+\
+\pard\pardeftab720\partightenfactor0
+\cf0   CrowdFunding Contract                                                                                                                                                                                                                                                                                       \
+                                                                                                                                                                                                                                                                                                              \
+                                                                                                                                                                                                                                                                                                              \
+#########################################                                                                                                                                                                                                                                                                     \
+ addRewards function                                                                                                                                                                                                                                                                                          \
+#########################################                                                                                                                                                                                                                                                                     \
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 \cb4 - investor1 i\'e7in TGE\'92de 1000, sonra 23 vesting ile 1000\'92er token,\
+- investor2 i\'e7in TGE\'92de 2000, sonra 23 vesting ile 2000\'92er token,\
+- investor3 i\'e7in TGE\'92de 3000, sonra 23 vesting ile 3000\'92er token \'f6d\'fcl tan\uc0\u305 mlamas\u305  yap\u305 lm\u305 \u351 t\u305 r.\
+- kontratta hesaplanan totalRewardAmount de\uc0\u287 erinin 1000 + 2000 + 3000 + (23 * (1000 + 2000 + 3000)) = 144000 oldu\u287 u g\'f6zlemlenmi\u351 tir. \
+- investor4, investor5 ve investor6 i\'e7in de ayn\uc0\u305  oranda \'f6d\'fcller eklenmi\u351 ,\
+- kontratta hesaplanan totalRewardAmount de\uc0\u287 erinin ayn\u305  miktarda artarak 288000 oldu\u287 u g\'f6zlemlenmi\u351 tir. \cb2 \
+                                                                                                                                                                                                                                                                \
+    \cf5   
+\f1 \uc0\u10004 
+\f0 \cf6  Calculate totalAmount variable correct in contract\cf7  (1364ms)\cf0   \
+\
+\
+-investor1, investor2 ve investor3 i\'e7in \'f6d\'fcl eklemesi yap\uc0\u305 ld\u305 ktan sonra investor1 i\'e7in yeniden ekleme yap\u305 lmas\u305  denendi\u287 inde \'93Investor already added\'94 hatas\u305  d\'f6nd\'fc\u287 \'fc g\'f6zlemlenmi\u351 tir.                                                                                                                                                                                                                                                                                    \
+                                                                                                                                                                                                                                                                                                              \
+    \cf5   
+\f1 \uc0\u10004 
+\f0 \cf6  Cannot add reward for same investor second time\cf7  (1062ms)\cf0   \
+                                                                                                                                                                                                                                            \
+        \
+\pard\pardeftab720\partightenfactor0
+\cf0 #########################################                                                                                                                                                                                                                                                                     \
+ addToBlacklist and removeFromBlacklist function                                                                                                                                                                                                                                                              \
+#########################################                                                                                                                                                                                                                                                                     \
+                                             \
+- \'d6d\'fcl eklemesi yap\uc0\u305 lmam\u305 \u351  bir adres blackliste eklenmeye denenmi\u351 , \'93Reward owner not found\'94 hatas\u305  d\'f6nd\'fc\u287 \'fc g\'f6zlemlenmi\u351 tir.\
+                                                                                                                                                                                                                                                                 \
+    \cf5   
+\f1 \uc0\u10004 
+\f0 \cf6  Reverts adding to blacklist if address is not investor\cf7  (1025ms)\cf0                                                                                                                                                                                                                                        \
+         \
+                                                                                                                                                                                                                                                                                                     \
+- Zaten blacklistte olan bir adres tekrar blackliste eklenmeye denenmi\uc0\u351 , \'93Already blacklisted\'94 hatas\u305  d\'f6nd\'fc\u287 \'fc g\'f6zlemlenmi\u351 tir.\
+\
+    \cf5   
+\f1 \uc0\u10004 
+\f0 \cf6  Reverts adding to blacklist if address is already blacklisted\cf7  (1487ms)\cf0  \
+\
+                                                                                                                                                                                                                               \
+- \'d6d\'fcl sahibi bir hesab\uc0\u305 n, 3 manager hesab\u305 n onay\u305 yla ba\u351 ar\u305 l\u305  \u351 ekilde blackliste eklenebildi\u287 i g\'f6zlemlenmi\u351 tir.\
+- Blacklist tarihinden sonraki vestinglere ait token miktarlar\uc0\u305 n\u305 n toplam\u305 , fonksiyon \'e7a\u287 \u305 r\u305 l\u305 rken parametre olarak g\'f6nderilen adrese transfer edildi\u287 i g\'f6zlemlenmi\u351 tir.\
+                                                                                                                                                                                                                                                                                                              \
+    \cf5   
+\f1 \uc0\u10004 
+\f0 \cf6  Adds to blacklist if everything is ok\cf7  (1698ms)\cf0                                                                                                                                                                                                                                                         \
+                                                                                                                                                                                                                                                                                                              \
+\
+- Blacklistte olmayan bir adresin blacklistten \'e7\uc0\u305 kar\u305 lmas\u305  denenmi\u351 , \'93Not blacklisted\'94 hatas\u305  d\'f6nd\'fc\u287 \'fc g\'f6zlemlenmi\u351 tir.\
+                                                                                                                                                                                                                                                                                                              \
+    \cf5   
+\f1 \uc0\u10004 
+\f0 \cf6  Reverts removing from blacklist if address is not blacklisted\cf7  (1238ms)\cf0  \
+                                                                                                                                                                                                                               \
+                                                                                                                                                                                                                                                                                                              \
+- Blacklistte olan bir adresin 3 manager hesab\uc0\u305 n onay\u305 yla blacklistten \'e7\u305 kar\u305 labildi\u287 i g\'f6zlemlenmi\u351 tir.\
+- Blacklist tarihinden sonraki vestinglere ait token miktarlar\uc0\u305 n\u305 n toplam\u305 , fonksiyon \'e7a\u287 \u305 r\u305 l\u305 rken parametre olarak g\'f6nderilen adresten crowdfunding contract\u305 na transfer edildi\u287 i g\'f6zlemlenmi\u351 tir.\
+                                                                                                                                                                                                                                                                \
+    \cf5   
+\f1 \uc0\u10004 
+\f0 \cf6  Removes from blacklist if everything is ok\cf7  (2210ms)\cf0                                                                                                                                                                                                                                                                                                        \
+                                                                                                                                                                                                                                                                                                              \
+#########################################                                                                                                                                                                                                                                                                     \
+ claimTokens function                                                                                                                                                                                                                                                                                        \
+#########################################       \
+\
+-investor1, investor2 ve investor3 i\'e7in \'f6d\'fcl eklemesi yap\uc0\u305 ld\u305 ktan sonra investor1 taraf\u305 ndan ilk \'f6demenin serbest kalma zaman\u305 ndan \'f6nce claim edilmesi denenmi\u351 , \'93Early request\'94 hatas\u305  d\'f6nd\'fc\u287 \'fc g\'f6zlemlenmi\u351 tir.   \
+                                                                                                                                                                                                                                                                                                                                                                                \
+    \cf5   
+\f1 \uc0\u10004 
+\f0 \cf6  Cannot claim advance amount before release date\cf7  (1267ms)\cf0                                                                                                                                                                                                                                               \
+\
+\
+-investor1, investor2 ve investor3 i\'e7in \'f6d\'fcl eklemesi yap\uc0\u305 lm\u305 \u351 , contract \'fczerinde olu\u351 an vesting datas\u305 n\u305 n zaman verileri aras\u305 nda 30\'92ar g\'fcn oldu\u287 u g\'f6zlemlenmi\u351 tir.\
+                                                                                                                                                                                                                                                     \
+    \cf5   
+\f1 \uc0\u10004 
+\f0 \cf6  Must be 30 days between vestings's release dates\cf7  (1334ms)\cf0                                                                                                                                                                                                                                              \
+\
+\
+-investor1, investor2 ve investor3 i\'e7in \'f6d\'fcl eklemesi yap\uc0\u305 lm\u305 \u351 , zaman ge\'e7i\u351 i s\'fcmile edilerek birer ay aral\u305 klarla t\'fcm vesting haklar\u305  claim edilmesi denenmi\u351  ve a\u351 a\u287 \u305 daki tablo elde edilmi\u351 tir.\
+                                                                                                                                                                                                                                                    \
+User claimed 1000.0 tokens on Wed Jul 20 2022                                                                                                                                                                                                                                                                 \
+User claimed 1000.0 tokens on Fri Aug 19 2022                                                                                                                                                                                                                                                                 \
+User claimed 1000.0 tokens on Sun Sep 18 2022                                                                                                                                                                                                                                                                 \
+User claimed 1000.0 tokens on Tue Oct 18 2022                                                                                                                                                                                                                                                                 \
+User claimed 1000.0 tokens on Thu Nov 17 2022                                                                                                                                                                                                                                                                 \
+User claimed 1000.0 tokens on Sat Dec 17 2022                                                                                                                                                                                                                                                                 \
+User claimed 1000.0 tokens on Mon Jan 16 2023                                                                                                                                                                                                                                                                 \
+User claimed 1000.0 tokens on Wed Feb 15 2023                                                                                                                                                                                                                                                                 \
+User claimed 1000.0 tokens on Fri Mar 17 2023                                                                                                                                                                                                                                                                 \
+User claimed 1000.0 tokens on Sun Apr 16 2023                                                                                                                                                                                                                                                                 \
+User claimed 1000.0 tokens on Tue May 16 2023                                                                                                                                                                                                                                                                 \
+User claimed 1000.0 tokens on Thu Jun 15 2023                                                                                                                                                                                                                                                                 \
+User claimed 1000.0 tokens on Sat Jul 15 2023                                                                                                                                                                                                                                                                 \
+User claimed 1000.0 tokens on Mon Aug 14 2023                                                                                                                                                                                                                                                                 \
+User claimed 1000.0 tokens on Wed Sep 13 2023                                                                                                                                                                                                                                                                 \
+User claimed 1000.0 tokens on Fri Oct 13 2023                                                                                                                                                                                                                                                                 \
+User claimed 1000.0 tokens on Sun Nov 12 2023                                                                                                                                                                                                                                                                 \
+User claimed 1000.0 tokens on Tue Dec 12 2023                                                                                                                                                                                                                                                                 \
+User claimed 1000.0 tokens on Thu Jan 11 2024                                                                                                                                                                                                                                                                 \
+User claimed 1000.0 tokens on Sat Feb 10 2024                                                                                                                                                                                                                                                                 \
+User claimed 1000.0 tokens on Mon Mar 11 2024                                                                                                                                                                                                                                                                 \
+User claimed 1000.0 tokens on Wed Apr 10 2024                                                                                                                                                                                                                                                                 \
+User claimed 1000.0 tokens on Fri May 10 2024                                                                                                                                                                                                                                                                 \
+User claimed 1000.0 tokens on Sun Jun 09 2024                                                                                                                                                                                                                                                                 \
+                                                                                                                                                                                                                                                                                                              \
+User balance after claiming all the vestings: 24000.0                                                                                                                                                                                                                                                         \
+\
+    \cf5   
+\f1 \uc0\u10004 
+\f0 \cf6  Can claim vestings when reach their release dates\cf7  (1813ms)\cf0                                                                                                                                                                                                                                             \
+                                                                                                                                                                                                                                                                                                              \
+\
+\
+-investor1, investor2 ve investor3 i\'e7in \'f6d\'fcl eklemesi yap\uc0\u305 lm\u305 \u351 , ilk 12 vestingden sonra investor 1 managers hesaplar taraf\u305 ndan blacklist olarak tan\u305 mlanm\u305 \u351 t\u305 r. Investor 1\'92in her ay d\'fczenli olarak claim etme talebi sonucu a\u351 a\u287 \u305 daki tablo olu\u351 mu\u351 tur.\
+\
+Managers will add the investor's address to blacklist after 12th vesting.                                                                                                                                                                                                                                     \
+Vesting 1: User claimed 1000.0 tokens on Sun Jun 16 2024                                                                                                                                                                                                                                                      \
+Vesting 2: User claimed 1000.0 tokens on Tue Jul 16 2024                                                                                                                                                                                                                                                      \
+Vesting 3: User claimed 1000.0 tokens on Thu Aug 15 2024                                                                                                                                                                                                                                                      \
+Vesting 4: User claimed 1000.0 tokens on Sat Sep 14 2024                                                                                                                                                                                                                                                      \
+Vesting 5: User claimed 1000.0 tokens on Mon Oct 14 2024                                                                                                                                                                                                                                                      \
+Vesting 6: User claimed 1000.0 tokens on Wed Nov 13 2024                                                                                                                                                                                                                                                      \
+Vesting 7: User claimed 1000.0 tokens on Fri Dec 13 2024                                                                                                                                                                                                                                                      \
+Vesting 8: User claimed 1000.0 tokens on Sun Jan 12 2025                                                                                                                                                                                                                                                      \
+Vesting 9: User claimed 1000.0 tokens on Tue Feb 11 2025                                                                                                                                                                                                                                                      \
+Vesting 10: User claimed 1000.0 tokens on Thu Mar 13 2025                                                                                                                                                                                                                                                     \
+Vesting 11: User claimed 1000.0 tokens on Sat Apr 12 2025                                                                                                                                                                                                                                                     \
+Vesting 12: User claimed 1000.0 tokens on Mon May 12 2025   \
+\pard\pardeftab720\partightenfactor0
+\cf8 Managers added user to blacklist\
+token balance in contract before:  132000.0\
+token balance in contract after:  120000.0  \cf0                                                                                                                                                                                                                                                 \
+Vesting 13: Claim rejected because the address is blacklisted                                                                                                                                                                                                                                                 \
+Vesting 14: Claim rejected because the address is blacklisted                                                                                                                                                                                                                                                 \
+Vesting 15: Claim rejected because the address is blacklisted                                                                                                                                                                                                                                                 \
+Vesting 16: Claim rejected because the address is blacklisted                                                                                                                                                                                                                                                 \
+Vesting 17: Claim rejected because the address is blacklisted                                                                                                                                                                                                                                                 \
+Vesting 18: Claim rejected because the address is blacklisted                                                                                                                                                                                                                                                 \
+Vesting 19: Claim rejected because the address is blacklisted                                                                                                                                                                                                                                                 \
+Vesting 20: Claim rejected because the address is blacklisted                                                                                                                                                                                                                                                 \
+Vesting 21: Claim rejected because the address is blacklisted                                                                                                                                                                                                                                                 \
+Vesting 22: Claim rejected because the address is blacklisted                                                                                                                                                                                                                                                 \
+Vesting 23: Claim rejected because the address is blacklisted                                                                                                                                                                                                                                                 \
+Vesting 24: Claim rejected because the address is blacklisted                                                                                                                                                                                                                                                 \
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 - Blacklist tarihinden sonraki vestinglere ait token miktarlar\uc0\u305 n\u305 n toplam\u305 , fonksiyon \'e7a\u287 \u305 r\u305 l\u305 rken parametre olarak g\'f6nderilen adrese transfer edildi\u287 i g\'f6zlemlenmi\u351 tir.\
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+    \cf5   
+\f1 \uc0\u10004 
+\f0 \cf6  Cannot claim investor when blacklested\cf7  (2100ms)\cf0       \
+\
+\
+-investor1, investor2 ve investor3 i\'e7in \'f6d\'fcl eklemesi yap\uc0\u305 lm\u305 \u351 , ilk 12 vestingden sonra investor 1 managers hesaplar taraf\u305 ndan blacklist olarak tan\u305 mlanm\u305 \u351 t\u305 r. Investor 1 blacklist olana kadar hi\'e7 claim yapmam\u305 \u351 , blacklist olduktan sonra vesting haklar\u305 n\u305  kullanmak istemi\u351  ve a\u351 a\u287 \u305 daki tablo olu\u351 mu\u351 tur.\
+\
+Vesting 1: User claimed 1000.0 tokens on Thu May 14 2026\
+Vesting 2: User claimed 1000.0 tokens on Sat Jun 13 2026\
+Vesting 3: User claimed 1000.0 tokens on Mon Jul 13 2026\
+Vesting 4: User claimed 1000.0 tokens on Wed Aug 12 2026\
+Vesting 5: User claimed 1000.0 tokens on Fri Sep 11 2026\
+Vesting 6: User claimed 1000.0 tokens on Sun Oct 11 2026\
+Vesting 7: User claimed 1000.0 tokens on Tue Nov 10 2026\
+Vesting 8: User claimed 1000.0 tokens on Thu Dec 10 2026\
+Vesting 9: User claimed 1000.0 tokens on Sat Jan 09 2027\
+Vesting 10: User claimed 1000.0 tokens on Mon Feb 08 2027\
+Vesting 11: User claimed 1000.0 tokens on Wed Mar 10 2027\
+Vesting 12: User claimed 1000.0 tokens on Fri Apr 09 2027\
+\cf8 Managers added user to blacklist\
+token balance in contract before:  132000.0\
+token balance in contract after:  120000.0\cf0 \
+Vesting 13: Claim rejected because the address is blacklisted\
+Vesting 14: Claim rejected because the address is blacklisted\
+Vesting 15: Claim rejected because the address is blacklisted\
+Vesting 16: Claim rejected because the address is blacklisted\
+Vesting 17: Claim rejected because the address is blacklisted\
+Vesting 18: Claim rejected because the address is blacklisted\
+Vesting 19: Claim rejected because the address is blacklisted\
+Vesting 20: Claim rejected because the address is blacklisted\
+Vesting 21: Claim rejected because the address is blacklisted\
+Vesting 22: Claim rejected because the address is blacklisted\
+Vesting 23: Claim rejected because the address is blacklisted\
+Vesting 24: Claim rejected because the address is blacklisted\
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 - Blacklist tarihinden sonraki vestinglere ait token miktarlar\uc0\u305 n\u305 n toplam\u305 , fonksiyon \'e7a\u287 \u305 r\u305 l\u305 rken parametre olarak g\'f6nderilen adrese transfer edildi\u287 i g\'f6zlemlenmi\u351 tir.\
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+      
+\f1 \cf5 \uc0\u10004 
+\f0 \cf0  Blacklisted investor can claim vestings which has released before blacklisting time \cf9 (2070ms)\cf0                                                                                                                                                                                                                                                  \
+                                                                                                                                                                                                                                                                                                              \
+                                                                                                                                                                                                                                                                                                              \
+#########################################                                                                                                                                                                                                                                                                     \
+ deactivateInvestorVesting and activateInvestorVesting function                                                                                                                                                                                                                                               \
+#########################################        \
+\
+-investor1, investor2 ve investor3 i\'e7in \'f6d\'fcl eklemesi yap\uc0\u305 lm\u305 \u351 , \'f6d\'fcl eklemesi yap\u305 lmam\u305 \u351  olan bir adres i\'e7in deactivate fonksiyonu \'e7a\u287 \u305 r\u305 lm\u305 \u351  ve \'93Reward owner not found\'94 hatas\u305  d\'f6nd\'fc\u287 \'fc g\'f6zlemlenmi\u351 tir.\
+                                                                                                                                                                                                                                                                                                          \
+    \cf5   
+\f1 \uc0\u10004 
+\f0 \cf6  Reverts deactivating if address is not investor\cf7  (1235ms)\cf0    \
+\
+                                                                                                                                                                                                                                           \
+-investor1, investor2 ve investor3 i\'e7in 24 vestingli \'f6d\'fcl eklemesi yap\uc0\u305 lm\u305 \u351 , investor1 i\'e7in 25\'92inci vesting i\'e7in deactivate fonksiyonu \'e7a\u287 \u305 r\u305 lm\u305 \u351 , \'93Invalid vesting index\'94 hatas\u305  d\'f6nd\'fc\u287 \'fc g\'f6zlemlenmi\u351 tir.      \
+                                                                                                                                                                                                                                                                                                     \
+    \cf5   
+\f1 \uc0\u10004 
+\f0 \cf6  Reverts deactivating if vesting index is invalid\cf7  (1035ms)\cf0                                                                                                                                                                                                                                              \
+                                                                     \
+\
+-investor1, investor2 ve investor3 i\'e7in \'f6d\'fcl eklemesi yap\uc0\u305 lm\u305 \u351 , investor1 taraf\u305 ndan ilk vesting claim edildikten sonra deactivate fonksiyonu \'e7a\u287 \u305 r\u305 lm\u305 \u351 , \'93Already claimed\'94 hatas\u305  d\'f6nd\'fc\u287 \'fc g\'f6zlemlenmi\u351 tir. \
+                                                                                                                                                                                                                                         \
+    \cf5   
+\f1 \uc0\u10004 
+\f0 \cf6  Reverts deactivating if vesting has already claimed\cf7  (1047ms)\cf0    \
+\
+- 3 manager hesab\uc0\u305 n onay\u305  sonucunda investor hesaba ait belirtilen bir vestingin deactive edilebildi\u287 i g\'f6zlemlenmi\u351 tir.\
+- Deactive edilen vestinge ait token miktar\uc0\u305 n\u305 n, fonksiyonu \'e7a\u287 \u305 r\u305 rken parametre olarak g\'f6nderilen adrese transfer edildi\u287 i g\'f6zlemlenmi\u351 tir.                                                                                                                                                                                                                                       \
+                                                                                                                                                                                                                                                                                                              \
+    \cf5   
+\f1 \uc0\u10004 
+\f0 \cf6  Managers can deactivate vesting for an investor with specified vesting index by voting if everything is ok\cf7  (1717ms)\cf0                                                                                                                                                                                    \
+                      \
+\
+- Deactive olmayan bir vestingin active edilmesi denendi\uc0\u287 inde \'93Already active\'94 hatas\u305  d\'f6nd\'fc\u287 \'fc g\'f6zlemlenmi\u351 tir.                                                                                                                                                                                                                                                                                        \
+    \cf5   
+\f1 \uc0\u10004 
+\f0 \cf6  Reverts activating if vesting is already active\cf7  (1037ms)\cf0                                                                                                                                                                                                                                               \
+\
+- 3 manager hesab\uc0\u305 n onay\u305  sonucunda investor hesaba deactive edilmi\u351  bir vestingin tekrar active edilebildi\u287 i g\'f6zlemlenmi\u351 tir.                                                                                                                                                                                                                                       \
+\
+    \cf5   
+\f1 \uc0\u10004 
+\f0 \cf6  Managers can activate vesting for an investor with specified vesting index by voting if everything is ok\cf7  (2207ms)\cf0                                                                                                                                                                                      \
+                                                                                                                                                                                                                                                                                                              \
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                \
+                                                                                                                                                                                                                                                                                                              \
+                                                                                                                                                                                                                                                                                                              \
+#########################################                                                                                                                                                                                                                                                                     \
+ fetchRewardsInfo and fetchRewardsInfoForAccount function                                                                                                                                                                                                                                                                                    \
+#########################################   \
+\
+- Her iki fonksiyonun da istenilen bilgiyi do\uc0\u287 ru \u351 ekilde d\'f6nd\'fcrd\'fc\u287 \'fc g\'f6zlemlenmi\u351 tir.                                                                                                                                                                                                                                                         \
+                                                                                                                                                                                                                                                                                                              \
+    \cf5   
+\f1 \uc0\u10004 
+\f0 \cf6  Returns reward info for caller investor and given vesting index\cf7  (1067ms)\cf0                                                                                                                                                                                                                               \
+                                                                                                                                                                                                                                                                                                              \
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 \
+                                                                                                                                                                                                                                                                                                              \
+\pard\pardeftab720\partightenfactor0
+\cf10  \cf5  19 passing\cf6  (1m)\cf0                                        \
+\
+}

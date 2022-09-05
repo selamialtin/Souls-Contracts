@@ -1,0 +1,192 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2638
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fmodern\fcharset0 CourierNewPSMT;\f1\fnil\fcharset0 Menlo-Regular;\f2\fnil\fcharset0 HelveticaNeue;
+}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red0\green0\blue0;\red92\green248\blue7;
+\red50\green50\blue50;\red252\green51\blue51;\red213\green242\blue66;\red92\green248\blue7;\red50\green50\blue50;
+\red252\green51\blue51;\red255\green255\blue255;}
+{\*\expandedcolortbl;;\csgray\c0\c0;\cssrgb\c0\c0\c0;\cssrgb\c40784\c95686\c0;
+\cssrgb\c25490\c25490\c25490;\cssrgb\c100000\c29804\c25490;\cssrgb\c86275\c94510\c32157;\cssrgb\c40784\c95686\c0;\cssrgb\c25490\c25490\c25490;
+\cssrgb\c100000\c29804\c25490;\cssrgb\c100000\c100000\c100000;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww18900\viewh20460\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs28 \cf0 \cb2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3   LiquidityVault Contract                                                                                                                                                        \
+                                                                                                                                                                                 \
+                                                                                                                                                                                 \
+#########################################                                                                                                                                        \
+ lockTokens function                                                                                                                                                             \
+#########################################                                                                                                                                        \
+    \cf4 \strokec4   
+\f1 \uc0\u10004 
+\f0 \cf5 \strokec5  Cannot call after initialization\cf0 \strokec3                                                                                                                                          \
+                                                                                                                                                                                 \
+    \cf4 \strokec4   
+\f1 \uc0\u10004 
+\f0 \cf5 \strokec5  Contract token balance must increase with amount of locked tokens\cf0 \strokec3                                                                                                         \
+\
+\uc0\u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9516 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9516 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488                                                                                                                                    \
+\uc0\u9474  (index) \u9474     amount    \u9474     releaseDate    \u9474                                                                                                                                    \
+\uc0\u9500 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9532 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9532 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9508                                                                                                                                    \
+\uc0\u9474     0    \u9474  \cf4 \strokec4 '57000000.0'\cf0 \strokec3  \uc0\u9474  \cf4 \strokec4 'Sun Jul 17 2022'\cf0 \strokec3  \uc0\u9474                                                                                                                                    \
+\uc0\u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9524 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9524 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496                                                                                                                                                                                                                                                                               \
+    \cf4 \strokec4   
+\f1 \uc0\u10004 
+\f0 \cf5 \strokec5  Total of vestings must be equal to locked tokens\cf0 \strokec3                                                                                                                          \
+                \
+    \cf4 \strokec4   
+\f1 \uc0\u10004 
+\f0 \cf5 \strokec5  Creates liquidity on DEX and transfers LP tokens to proxy contract\cf0 \strokec3                                                                                                        \
+\
+- Proxy contractta bulunan LP tokenlar\uc0\u305 n 3 y\'f6netici hesap taraf\u305 ndan istenilen bir adrese transfer edilebildi\u287 i g\'f6zlemlenmi\u351 tir.                                                 \
+    \cf4 \strokec4   
+\f1 \uc0\u10004 
+\f0 \cf5 \strokec5  Managers can transfer LP tokens from proxy contract\cf6 \strokec6  (531ms)\cf0 \strokec3                                                                                                               \
+                                                                                                                                                                                 \
+                                                                                                                                                                                 \
+#########################################                                                                                                                                        \
+ withdrawTokens function                                                                                                                                                         \
+#########################################                                                                                                                                        \
+\
+- Liquidity Vault\'92tan manager hesaplar taraf\uc0\u305 ndan token withdraw yap\u305 lamad\u305 \u287 \u305  g\'f6zlemlenmi\u351 tir.                                                                                                                                                                     \
+    \cf4 \strokec4   
+\f1 \uc0\u10004 
+\f0 \cf5 \strokec5  Managers can't withdraw from liquidity vault\cf0 \strokec3                                                                                                                              \
+                                                                                                                                                                                 \
+                                                                                                                                                                                 \
+#########################################                                                                                                                                        \
+ addLiquidityOnDex function                                                                                                                                                      \
+#########################################                                                                                                                                        \
+\
+- Souls token i\'e7in trading i\uc0\u351 lemi aktifle\u351 tirilmi\u351 tir (gerekli i\u351 lem)\
+\pard\pardeftab720\partightenfactor0
+\cf0 \cb2 \outl0\strokewidth0 - Likidite i\'e7in gerekli olan BUSD miktar\uc0\u305  proxy contract\u305 na g\'f6nderilmi\u351 tir.\
+- 3 manager hesap taraf\uc0\u305 ndan\cb2 \outl0\strokewidth0 \strokec3  10000 SOULS token\'92\uc0\u305 n likiditeye eklenmesi istenmi\u351 tir\
+- Likidite ekleme sonras\uc0\u305  olu\u351 an yeni LP tokenlar\u305 n proxy contract\u305 na aktar\u305 ld\u305 \u287 \u305  g\'f6zlemlenmi\u351 tir.                                                                                     \
+\pard\pardeftab720\partightenfactor0
+\cf0     \cf4 \strokec4   
+\f1 \uc0\u10004 
+\f0 \cf5 \strokec5  Managers can add extra liquidity on DEX\cf6 \strokec6  (1320ms)\cf0 \strokec3                                                                                                                          \
+                                                                                                                                                                                 \
+                                                                                                                                                                                 \
+#########################################                                                                                                                                        \
+ withdrawMarketMakerShare function                                                                                                                                               \
+#########################################                                                                                                                                        \
+\
+- Deadline \'f6ncesinde 3 manager hesap taraf\uc0\u305 ndan fonksiyon \'e7a\u287 \u305 r\u305 lm\u305 \u351  ve 9375000 adet SOULS token\u305 n ba\u351 ar\u305 l\u305  bir \u351 ekilde istenilen adrese g\'f6nderildi\u287 i g\'f6zlemlenmi\u351 tir.\
+                                                            \
+    \cf4 \strokec4   
+\f1 \uc0\u10004 
+\f0 \cf5 \strokec5  Can be withdrwan by managers before deadline\cf6 \strokec6  (505ms)\cf0 \strokec3                                                                                                                      \
+\
+- Deadline sonras\uc0\u305 nda fonksiyon \'e7a\u287 \u305 r\u305 ld\u305 \u287 \u305 nda \'93Late request\'94 hatas\u305  d\'f6nd\'fc\u287 \'fc g\'f6zlemlenmi\u351 tir.                                                                                                                                                                          \
+    \cf4 \strokec4   
+\f1 \uc0\u10004 
+\f0 \cf5 \strokec5  Cannot withdraw after deadline\cf0 \strokec3                                                                                                                                            \
+                                                                                                                                                                                 \
+                                                                                                                                                                                 \
+\cf7 \strokec7  \cf4 \strokec4  9 passing\cf5 \strokec5  (46s)\cf0 \strokec3                                                                                                                                                                 \
+                 \
+\
+  LiquidityVault Contract                                                                                                                                                                                               \
+                                                                                                                                                                                                                        \
+                                                                                                                                                                                                                        \
+#########################################                                                                                                                                                                               \
+ lockTokens function                                                                                                                                                                                                    \
+#########################################                                                                                                                                                                                                                                                                                                                             \
+\pard\pardeftab720\partightenfactor0
+\cf0 \cb2 \outl0\strokewidth0 \
+- Proxy contract \'fczerinden Liquidity Vault init edildikten sonra tekrar init edilmesi denendi\uc0\u287 inde \'93Already Inited\'94 hatas\u305  d\'f6nd\'fc\u287 \'fc g\'f6zlemlenmi\u351 tir.                                                                                                                                                                             \cb2 \outl0\strokewidth0 \strokec3                                                                                                                                                                                                                         \
+\pard\pardeftab720\partightenfactor0
+\cf0     \cf4 \strokec4   
+\f1 \uc0\u10004 
+\f0 \cf5 \strokec5  Cannot init more than one for each vault\cf0 \strokec3                                                                                                                                                                         \
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 \cb2 \outl0\strokewidth0 - Liquidity vault contract\uc0\u305 n\u305 n init edilmesi sonras\u305 nda 60 milyon souls token\u305 n contracta transfer edildi\u287 i, bunun 3 milyon adedinin DEX likiditesine eklendi\u287 i ve 57 milyon token kald\u305 \u287 \u305  g\'f6zlemlenmi\u351 tir.                                                                                                 \cb2 \outl0\strokewidth0 \strokec3                                                                                                                                                                                                            \
+\pard\pardeftab720\partightenfactor0
+\cf0     \cf4 \strokec4   
+\f1 \uc0\u10004 
+\f0 \cf5 \strokec5  Contract token balance must increase with amount of locked tokens\cf0 \strokec3                                                                                                                                                \
+      \
+\pard\pardeftab720\partightenfactor0
+\cf0 \cb2 \outl0\strokewidth0 - Liquidity Vault olu\uc0\u351 umu s\u305 ras\u305 nda DEX \'fcst\'fcnde 3 milyon token\u305 n ba\u351 ar\u305 l\u305  olarak Likiditye eklendi\u287 i - Likidite eklenmesi sonucu olu\u351 an LP tokenlar\u305 n proxy contracta aktar\u305 ld\u305 \u287 \u305  g\'f6zlemlenmi\u351 tir.\
+\pard\pardeftab720\partightenfactor0
+\cf0     \cf8   
+\f1 \uc0\u10004 
+\f0 \cf9  Creates liquidity on DEX and transfers LP tokens to proxy contract\cf0      \
+\pard\pardeftab720\partightenfactor0
+\cf0 \cb2 \outl0\strokewidth0 \strokec3                                                                                                                                                                                                                   \
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 \cb2 \outl0\strokewidth0 - Likidite Vault\'92ta tek bir vesting oldu\uc0\u287 u ve token miktar\u305 n\u305 n toplam Liquidity Share\'92dan DEX likidite miktar\u305 n\u305 n \'e7\u305 kar\u305 lm\u305 \u351  haline e\u351 it oldu\u287 u g\'f6zlemlenmi\u351 tir.   \
+- Tek bir vesting olu\uc0\u351 tu\u287 u ve token miktar\u305 n\u305 n toplam liquidity share miktar\u305 ndan DEX likiditesi i\'e7in kullan\u305 lan miktar\u305 n \'e7\u305 kar\u305 lmas\u305  sonucu bulunan say\u305 ya e\u351 it oldu\u287 u g\'f6zlemlenmi\u351 tir.                                                                                                                                                                                                                                                                               \cb2 \outl0\strokewidth0 \strokec3                                                                                                                                                      \
+\pard\pardeftab720\partightenfactor0
+\cf0 \uc0\u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9516 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9516 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488                                                                                                                                                                           \
+\uc0\u9474  (index) \u9474     amount    \u9474     releaseDate    \u9474                                                                                                                                                                           \
+\uc0\u9500 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9532 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9532 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9508                                                                                                                                                                           \
+\uc0\u9474     0    \u9474  \cf4 \strokec4 '57000000.0'\cf0 \strokec3  \uc0\u9474  \cf4 \strokec4 'Fri Jul 22 2022'\cf0 \strokec3  \uc0\u9474                                                                                                                                                                           \
+\uc0\u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9524 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9524 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496                                                                                                                                                                                                                                                                                                                                                             \
+    \cf4 \strokec4   
+\f1 \uc0\u10004 
+\f0 \cf5 \strokec5  Total of vestings must be equal to locked tokens\cf0 \strokec3                                                                                                                                                                 \
+                                                                                                                                                                                                                                                                                                                                                                                                                              \
+                                                                                                                                                                                                                        \
+- Proxy contract\uc0\u305 nda toplanan LP tokenlar manager hesap taraf\u305 ndan unlock zaman\u305 ndan \'f6nce \'e7ekilmek istendi\u287 inde \'93LP tokens are locked still\'94 hatas\u305  d\'f6nd\'fc\u287 \'fc g\'f6zlemlenmi\u351 tir.\
+- Likidite Vault\'92un olu\uc0\u351 umundan 365 g\'fcn sonras\u305 na sim\'fcle edilmi\u351  ve LP tokenlar\u305 n 3 manager hesap taraf\u305 ndan ba\u351 ar\u305 l\u305  bir \u351 ekilde \'e7ekilebildi\u287 i g\'f6zlemlenmi\u351 tir.                                                                                                                                                                  \
+    \cf4 \strokec4   
+\f1 \uc0\u10004 
+\f0 \cf5 \strokec5  Managers can transfer LP tokens from proxy contract when reach unlock time\cf6 \strokec6  (564ms)\cf0 \strokec3                                                                                                                              \
+                                                                                                                                                                                                                        \
+                                                                                                                                                                                                                        \
+#########################################                                                                                                                                                                               \
+ withdrawTokens function                                                                                                                                                                                                \
+#########################################                                                                                                                                                                               \
+\
+- Liquidity Vault olu\uc0\u351 turulduktan sonra 365 g\'fcn ge\'e7mesi sim\'fcle edilmi\u351  ve withdrawTokens fonksiyonu  \'e7a\u287 \u305 r\u305 ld\u305 \u287 \u305 nda \'93Use withdrawRemainingTokens function for Liquidity Vault\'94 hatas\u305  d\'f6nd\'fc\u287 \'fc g\'f6zlemlenmi\u351 tir.                                                                                                                                                                                                                   \
+    \cf4 \strokec4   
+\f1 \uc0\u10004 
+\f0 \cf5 \strokec5  Managers can't use withdrawTokens function for liquidity vault\cf0 \strokec3                                                                                                                                                            \
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 \cb2 \outl0\strokewidth0 - Liquidity Vault olu\uc0\u351 turulduktan sonra 365 g\'fcn ge\'e7mesi sim\'fcle edilmi\u351  ve \cf9 withdrawRemainingTokens\cf0  fonksiyonu  \'e7a\uc0\u287 \u305 r\u305 ld\u305 \u287 \u305 nda contractta kalan tokenlar\u305 n ba\u351 ar\u305 l\u305  \u351 ekilde \'e7ekilebildi\u287 i g\'f6zlemlenmi\u351 tir.\cb2 \outl0\strokewidth0 \strokec3                                                                                                                                                                                                        \
+\pard\pardeftab720\partightenfactor0
+\cf0     \cf4 \strokec4   
+\f1 \uc0\u10004 
+\f0 \cf5 \strokec5  Managers can withdraw tokens from liquidity vault using withdrawRemainingTokens after unlock time\cf6 \strokec6  (149ms)\cf0 \strokec3                                                                                                        \
+                                                                                                                                                                                                                        \
+                                                                                                                                                                                                                        \
+#########################################                                                                                                                                                                               \
+ addLiquidityOnDex function                                                                                                                                                                                             \
+#########################################                                                                                                                                                                               \
+\
+- Trading pasif oldu\uc0\u287 unda pancake pair contract\u305  ile token al\u305 \u351 veri\u351 i yap\u305 lamayaca\u287 \u305 ndan 3 y\'f6netici hesap taraf\u305 ndan souls token contract\u305  \'fcst\'fcndeki enable trading fonksiyonu \'e7a\u287 \u305 r\u305 larak trading aktif hale getirilmi\u351 tir.\
+- 10 bin adet SOULS token\'92\uc0\u305 n likiditeye eklenmesi i\'e7in gerekli olan BUSD token miktar\u305 , Liquidity Vault contract\u305 ndaki \'93getRequiredBUSDAmountForLiquidity\'94 fonksiyonu kullan\u305 larak tespit edildikten sonra gerekli olan bu miktar Proxy contract\u305 na transfer edilmi\u351 tir.\
+- 3 manager hesap taraf\uc0\u305 ndan addLiquidityOnDEX fonksiyonu \'e7a\u287 \u305 r\u305 ld\u305 \u287 \u305 nda likiditenin eklenebildi\u287 i ve olu\u351 an yeni LP tokenlar\u305 n proxy contracta transfer edildi\u287 i g\'f6zlemlenmi\u351 tir.\
+    \cf4 \strokec4   
+\f1 \uc0\u10004 
+\f0 \cf5 \strokec5  Managers can add extra liquidity on DEX\cf6 \strokec6  (2892ms)\cf0 \strokec3                                                                                                                                                                 \
+                                                                                                                                                                                                                        \
+                                                                                                                                                                                                                        \
+#########################################                                                                                                                                                                               \
+ withdrawMarketMakerShare function                                                                                                                                                                                      \
+#########################################                                                                                                                                                                               \
+\pard\pardeftab720\partightenfactor0
+\cf0 \cb2 \outl0\strokewidth0 - Deadline \'f6ncesinde 3 manager hesap taraf\uc0\u305 ndan fonksiyon \'e7a\u287 \u305 r\u305 lm\u305 \u351  ve 9375000 adet SOULS token\u305 n ba\u351 ar\u305 l\u305  bir \u351 ekilde istenilen adrese g\'f6nderildi\u287 i g\'f6zlemlenmi\u351 tir.                                           \
+    \cf8   
+\f1 \uc0\u10004 
+\f0 \cf9  Can be withdrwan by managers before deadline\cf10  (505ms)\cf0                                                                                                                      \
+\
+- Deadline sonras\uc0\u305 nda fonksiyon \'e7a\u287 \u305 r\u305 ld\u305 \u287 \u305 nda \'93Late request\'94 hatas\u305  d\'f6nd\'fc\u287 \'fc g\'f6zlemlenmi\u351 tir.                                                                                                                                                                          \
+    \cf8   
+\f1 \uc0\u10004 
+\f0 \cf9  Cannot withdraw after deadline\cf0      \cb2 \outl0\strokewidth0 \strokec3                                                                                                                                                                                  \
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+\cf7 \strokec7  \cf4 \strokec4  10 passing\cf5 \strokec5  (56s)\cf0 \strokec3  
+\f2\fs22 \cb11                                                                                                                                                      \cb1 \
+
+\f0\fs28 \cb2                             \
+                 \
+}

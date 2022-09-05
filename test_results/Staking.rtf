@@ -1,0 +1,237 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2636
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fmodern\fcharset0 CourierNewPSMT;\f1\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red255\green255\blue255;\red0\green0\blue0;\red91\green247\blue7;
+\red50\green50\blue50;\red252\green50\blue50;\red253\green220\blue10;}
+{\*\expandedcolortbl;;\cssrgb\c100000\c100000\c100000\c0;\cssrgb\c0\c0\c0;\cssrgb\c40485\c95354\c0;
+\cssrgb\c25518\c25518\c25486;\cssrgb\c99967\c29711\c25273;\cssrgb\c99601\c87756\c0;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww28420\viewh25720\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs28 \cf0 \cb2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3   Staking Contract                                                                                                                                                           \
+\
+Kontrat deploy an\uc0\u305 nda staking \'f6d\'fcl\'fc i\'e7in ayr\u305 lan 300 milyon token do\u287 rudan bu kontrata g\'f6nderilir ve yaln\u305 zca stake \'f6d\'fclleri i\'e7in kullan\u305 lmak \'fczere kilitlenir. Buradaki tokenlar\u305 n stake \'f6d\'fcl\'fc d\u305 \u351 \u305 nda \'e7ekilmesi imkans\u305 zd\u305 r.\
+                                                                                                                                                                           \
+                                                                                                                                                                             \
+#########################################                                                                                                                                    \
+ Transfer tokens (10% of total supply) to staking contract for staking rewards while initializing                                                                            \
+#########################################                                                                                                                                    \
+\
+- Deploy i\uc0\u351 lemi sonras\u305 nda kontrat\u305 n SOULS token balans\u305  sorgulanm\u305 \u351  ve 300 milyon oldu\u287 u g\'f6zlemlenmi\u351 tir.\
+                                                                   \
+    \cf4 \strokec4   
+\f1 \cf4 \strokec4 \uc0\u10004 
+\f0 \cf5 \strokec5  Transfers tokens from proxy contract to staking contract\cf0 \strokec3                                                                                                              \
+                                                                                                                                                                             \
+                                                                                                                                                                             \
+#########################################                                                                                                                                    \
+ pause and unpause functions                                                                                                                                                 \
+#########################################                                                                                                                                    \
+\
+- manager hesaplardan 3 tanesi taraf\uc0\u305 ndan pause ve unpause fonksiyonlar\u305  \'e7a\u287 \u305 r\u305 ld\u305 \u287 \u305 nda kontrat\u305 n paused de\u287 i\u351 keninin true ve false olarak de\u287 i\u351 ti\u287 i g\'f6zlemlenmi\u351 tir. \
+\
+NOT: Bu parametre yaln\uc0\u305 zca yeni stake i\u351 lemlerini durdurmakta, stake etmi\u351  olanlar\u305 n \'f6d\'fcllerini almas\u305 n\u305  engellememektedir.                                                                                                                    \
+                                                                                                                                                                             \
+    \cf4 \strokec4   
+\f1 \cf4 \strokec4 \uc0\u10004 
+\f0 \cf5 \strokec5  Managers can pause/unpause new stakings by voting system. (Withdrawing is open always)\cf6 \strokec6  (1107ms)\cf0 \strokec3                                                                       \
+                                                                                                                                                                             \
+                                                                                                                                                                             \
+#########################################                                                                                                                                    \
+ changeStakeAPYrates function                                                                                                                                                \
+#########################################                                                                                                                                    \
+\
+- manager hesaplardan 3 tanesi taraf\uc0\u305 ndan APY oranlar\u305  1 ayl\u305 k stake i\'e7in 10%, 3 ayl\u305 k stake i\'e7in 15%, 6 ayl\u305 k stake i\'e7in 20% ve 12 ayl\u305 k stake i\'e7in 25% olarak de\u287 i\u351 tirilmesi istenmi\u351  ve ilgili parametrelerin de\u287 i\u351 ti\u287 i g\'f6zlemlenmi\u351 tir.\
+                                                                                                                                                                             \
+    \cf4 \strokec4   
+\f1 \cf4 \strokec4 \uc0\u10004 
+\f0 \cf5 \strokec5  Managers can change APY rates by voting system.\cf6 \strokec6  (508ms)\cf0 \strokec3                                                                                                               \
+                                                                                                                                                                             \
+                                                                                                                                                                             \
+#########################################                                                                                                                                    \
+ changeMinimumStakingAmount function                                                                                                                                         \
+############                                                                                                                                                                 \
+\
+- manager hesaplardan 3 tanesi taraf\uc0\u305 ndan minimum stake miktar\u305  5000 olarak de\u287 i\u351 tirilmesi istenmi\u351  ve ilgili parametrenin 5000 olarak de\u287 i\u351 ti\u287 i g\'f6zlemlenmi\u351 tir.\
+                                                                                                                                                                             \
+    \cf4 \strokec4   
+\f1 \cf4 \strokec4 \uc0\u10004 
+\f0 \cf5 \strokec5  Managers can change minimum staking amount by voting system.\cf6 \strokec6  (781ms)\cf0 \strokec3                                                                                                  \
+                                                                                                                                                                             \
+                                                                                                                                                                             \
+#########################################                                                                                                                                    \
+ stake function                                                                                                                                                              \
+#########################################                                                                                                                                    \
+\
+- Minimum stake miktar\uc0\u305  10000 token iken bir c\'fczdan taraf\u305 ndan 5000 tane token stake etme talebinde bulunulmu\u351  ve \'93Amount must be greater than minimum staking amount\'94 hatas\u305  d\'f6nd\'fc\u287 \'fc g\'f6zlemlenmi\u351 tir.\
+                                                                                                                                                                             \
+    \cf4 \strokec4   
+\f1 \cf4 \strokec4 \uc0\u10004 
+\f0 \cf5 \strokec5  reverts staking if token amount less then minimum staking amount\cf0 \strokec3             \
+\
+\
+- Stake s\'fcresi parametresi olarak 2 ay g\'f6nderilmi\uc0\u351  ve \'93Invalid staking duration\'94 hatas\u305  d\'f6nd\'fc\u287 \'fc g\'f6zlemlenmi\u351 tir.\
+                                                                                                                                                                             \
+    \cf4 \strokec4   
+\f1 \cf4 \strokec4 \uc0\u10004 
+\f0 \cf5 \strokec5  reverts staking with invalid duration parameter (should accept only 1, 3, 6 and 12)\cf0 \strokec3                                                                                   \
+\
+\
+- Stake edilmesi istenen miktar i\'e7in approve fonksiyonu \'e7a\uc0\u287 \u305 r\u305 lmadan stake edilmesi istenmi\u351  ve \'93ERC20: insufficient allowance\'94 hatas\u305  d\'f6nd\'fc\u287 \'fc g\'f6zlemlenmi\u351 tir.\
+                                                                                                                                                                             \
+    \cf4 \strokec4   
+\f1 \cf4 \strokec4 \uc0\u10004 
+\f0 \cf5 \strokec5  reverts staking if token approval is not enough\cf0 \strokec3                                                                                                                       \
+\
+\
+\
+- Hi\'e7 token olmayan bir hesap taraf\uc0\u305 ndan 10000 adet token stake edilmesi istenmi\u351  ve \'93ERC20: transfer amount exceeds balance\'94 hatas\u305  d\'f6nd\'fc\u287 \'fc g\'f6zlemlenmi\u351 tir.\
+                                                                                                                                                                 \
+    \cf4 \strokec4   
+\f1 \cf4 \strokec4 \uc0\u10004 
+\f0 \cf5 \strokec5  reverts staking if user's token balance is not enough\cf0 \strokec3                                                                                                                 \
+\
+\
+- manager hesaplar taraf\uc0\u305 ndan stake i\u351 lemleri pause edilmi\u351  ve stake denemesi yap\u305 ld\u305 \u287 \u305 nda \'93Pausable: paused\'94 hatas\u305  d\'f6nd\'fc\u287 \'fc g\'f6zlemlenmi\u351 tir.\
+\
+    \cf4 \strokec4   
+\f1 \cf4 \strokec4 \uc0\u10004 
+\f0 \cf5 \strokec5  reverts staking if staking paused by admins\cf6 \strokec6  (791ms)\cf0 \strokec3                                                                  \
+\
+\
+- 50000 adet token olan bir hesaptan 1 ay s\'fcreyle 10000 adet stake edilmesi istenmi\uc0\u351  ve stake i\u351 leminin ba\u351 ar\u305 l\u305  oldu\u287 u g\'f6zlemlenmi\u351 tir.\
+\
+    \cf4 \strokec4   
+\f1 \cf4 \strokec4 \uc0\u10004 
+\f0 \cf5 \strokec5  accepts staking if every thing is ok\cf6 \strokec6  (91ms)\cf0 \strokec3                                                                                                                           \
+\
+\
+\
+- Stake i\uc0\u351 lemi sonras\u305 nda ilgili parametrelerle event emit oldu\u287 u g\'f6zlemlenmi\u351 tir.\
+                                                                                                                                                                             \
+    \cf4 \strokec4   
+\f1 \cf4 \strokec4 \uc0\u10004 
+\f0 \cf5 \strokec5  emits `Stake` event with parameters `msg.sender, amount, stake date and release date)`\cf7 \strokec7  (61ms)\cf0 \strokec3                                                                         \
+                                                                                                                                                                             \
+                                                                                                                                                                             \
+#########################################                                                                                                                                    \
+ fetchStakeReward function                                                                                                                                                   \
+#########################################                                                                                                                                    \
+\
+- Bir hesap taraf\uc0\u305 nan 1 ay s\'fcreyle 10000 adet token stake edilmi\u351  ve do\u287 rudan anl\u305 k stake getiri bilgisi sorguland\u305 \u287 \u305 nda APY oran\u305 nda penalty tax uyguland\u305 \u287 \u305  g\'f6zlemlenmi\u351 tir.\
+                                                                                                                                                                             \
+    \cf4 \strokec4   
+\f1 \cf4 \strokec4 \uc0\u10004 
+\f0 \cf5 \strokec5  applies penalty fee with amount of APY in the first time of staking\cf6 \strokec6  (84ms)\cf0 \strokec3                                                                                            \
+\
+\
+                                                                                                                                                                             \
+\uc0\u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9516 \u9472 \u9472 \u9472 \u9472 \u9472 \u9516 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9516 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9516 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488                                                                        \
+\uc0\u9474  (index) \u9474  day \u9474         totalAmount         \u9474       penaltyAmount       \u9474       remainingAmount       \u9474                                                                        \
+\uc0\u9500 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9532 \u9472 \u9472 \u9472 \u9472 \u9472 \u9532 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9532 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9532 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9508                                                                        \
+\uc0\u9474     0    \u9474   \cf7 \strokec7 0\cf0 \strokec3   \uc0\u9474          \cf4 \strokec4 '10000.0'\cf0 \strokec3           \uc0\u9474          \cf4 \strokec4 '500.0'\cf0 \strokec3           \uc0\u9474           \cf4 \strokec4 '9500.0'\cf0 \strokec3           \uc0\u9474                                                                        \
+\uc0\u9474     1    \u9474   \cf7 \strokec7 1\cf0 \strokec3   \uc0\u9474  \cf4 \strokec4 '10001.369863013698630136'\cf0 \strokec3  \uc0\u9474  \cf4 \strokec4 '483.399543378995433856'\cf0 \strokec3  \uc0\u9474   \cf4 \strokec4 '9517.97031963470319628'\cf0 \strokec3   \uc0\u9474                                                                        \
+\uc0\u9474     2    \u9474   \cf7 \strokec7 2\cf0 \strokec3   \uc0\u9474  \cf4 \strokec4 '10002.739726027397260273'\cf0 \strokec3  \uc0\u9474  \cf4 \strokec4 '466.794520547945205512'\cf0 \strokec3  \uc0\u9474  \cf4 \strokec4 '9535.945205479452054761'\cf0 \strokec3   \uc0\u9474                                                                        \
+\uc0\u9474     3    \u9474   \cf7 \strokec7 3\cf0 \strokec3   \uc0\u9474  \cf4 \strokec4 '10004.10958904109589041'\cf0 \strokec3   \uc0\u9474  \cf4 \strokec4 '450.184931506849315068'\cf0 \strokec3  \uc0\u9474  \cf4 \strokec4 '9553.924657534246575342'\cf0 \strokec3   \uc0\u9474                                                                        \
+\uc0\u9474     4    \u9474   \cf7 \strokec7 4\cf0 \strokec3   \uc0\u9474  \cf4 \strokec4 '10005.479452054794520547'\cf0 \strokec3  \uc0\u9474  \cf4 \strokec4 '433.570776255707762623'\cf0 \strokec3  \uc0\u9474  \cf4 \strokec4 '9571.908675799086757924'\cf0 \strokec3   \uc0\u9474                                                                        \
+\uc0\u9474     5    \u9474   \cf7 \strokec7 5\cf0 \strokec3   \uc0\u9474  \cf4 \strokec4 '10006.849315068493150684'\cf0 \strokec3  \uc0\u9474  \cf4 \strokec4 '416.952054794520547978'\cf0 \strokec3  \uc0\u9474  \cf4 \strokec4 '9589.897260273972602706'\cf0 \strokec3   \uc0\u9474                                                                        \
+\uc0\u9474     6    \u9474   \cf7 \strokec7 6\cf0 \strokec3   \uc0\u9474  \cf4 \strokec4 '10008.219178082191780821'\cf0 \strokec3  \uc0\u9474  \cf4 \strokec4 '400.328767123287671232'\cf0 \strokec3  \uc0\u9474  \cf4 \strokec4 '9607.890410958904109589'\cf0 \strokec3   \uc0\u9474                                                                        \
+\uc0\u9474     7    \u9474   \cf7 \strokec7 7\cf0 \strokec3   \uc0\u9474  \cf4 \strokec4 '10009.589041095890410958'\cf0 \strokec3  \uc0\u9474  \cf4 \strokec4 '383.700913242009132486'\cf0 \strokec3  \uc0\u9474  \cf4 \strokec4 '9625.888127853881278472'\cf0 \strokec3   \uc0\u9474                                                                        \
+\uc0\u9474     8    \u9474   \cf7 \strokec7 8\cf0 \strokec3   \uc0\u9474  \cf4 \strokec4 '10010.958904109589041095'\cf0 \strokec3  \uc0\u9474  \cf4 \strokec4 '367.06849315068493154'\cf0 \strokec3   \uc0\u9474  \cf4 \strokec4 '9643.890410958904109555'\cf0 \strokec3   \uc0\u9474                                                                        \
+\uc0\u9474     9    \u9474   \cf7 \strokec7 9\cf0 \strokec3   \uc0\u9474  \cf4 \strokec4 '10012.328767123287671232'\cf0 \strokec3  \uc0\u9474  \cf4 \strokec4 '350.431506849315068493'\cf0 \strokec3  \uc0\u9474  \cf4 \strokec4 '9661.897260273972602739'\cf0 \strokec3   \uc0\u9474                                                                        \
+\uc0\u9474    10    \u9474  \cf7 \strokec7 10\cf0 \strokec3   \uc0\u9474  \cf4 \strokec4 '10013.698630136986301369'\cf0 \strokec3  \uc0\u9474  \cf4 \strokec4 '333.789954337899543445'\cf0 \strokec3  \uc0\u9474  \cf4 \strokec4 '9679.908675799086757924'\cf0 \strokec3   \uc0\u9474                                                                        \
+\uc0\u9474    11    \u9474  \cf7 \strokec7 11\cf0 \strokec3   \uc0\u9474  \cf4 \strokec4 '10015.068493150684931506'\cf0 \strokec3  \uc0\u9474  \cf4 \strokec4 '317.143835616438356197'\cf0 \strokec3  \uc0\u9474  \cf4 \strokec4 '9697.924657534246575309'\cf0 \strokec3   \uc0\u9474                                                                        \
+\uc0\u9474    12    \u9474  \cf7 \strokec7 12\cf0 \strokec3   \uc0\u9474  \cf4 \strokec4 '10016.438356164383561643'\cf0 \strokec3  \uc0\u9474  \cf4 \strokec4 '300.493150684931506849'\cf0 \strokec3  \uc0\u9474  \cf4 \strokec4 '9715.945205479452054794'\cf0 \strokec3   \uc0\u9474                                                                        \
+\uc0\u9474    13    \u9474  \cf7 \strokec7 13\cf0 \strokec3   \uc0\u9474  \cf4 \strokec4 '10017.80821917808219178'\cf0 \strokec3   \uc0\u9474   \cf4 \strokec4 '283.8378995433789955'\cf0 \strokec3   \uc0\u9474   \cf4 \strokec4 '9733.97031963470319628'\cf0 \strokec3   \uc0\u9474                                                                        \
+\uc0\u9474    14    \u9474  \cf7 \strokec7 14\cf0 \strokec3   \uc0\u9474  \cf4 \strokec4 '10019.178082191780821917'\cf0 \strokec3  \uc0\u9474  \cf4 \strokec4 '267.178082191780821951'\cf0 \strokec3  \uc0\u9474  \cf4 \strokec4 '9751.999999999999999966'\cf0 \strokec3   \uc0\u9474                                                                        \
+\uc0\u9474    15    \u9474  \cf7 \strokec7 15\cf0 \strokec3   \uc0\u9474  \cf4 \strokec4 '10020.547945205479452054'\cf0 \strokec3  \uc0\u9474  \cf4 \strokec4 '250.513698630136986301'\cf0 \strokec3  \uc0\u9474  \cf4 \strokec4 '9770.034246575342465753'\cf0 \strokec3   \uc0\u9474                                                                        \
+\uc0\u9474    16    \u9474  \cf7 \strokec7 16\cf0 \strokec3   \uc0\u9474  \cf4 \strokec4 '10021.917808219178082191'\cf0 \strokec3  \uc0\u9474  \cf4 \strokec4 '233.844748858447488651'\cf0 \strokec3  \uc0\u9474   \cf4 \strokec4 '9788.07305936073059354'\cf0 \strokec3   \uc0\u9474                                                                        \
+\uc0\u9474    17    \u9474  \cf7 \strokec7 17\cf0 \strokec3   \uc0\u9474  \cf4 \strokec4 '10023.287671232876712328'\cf0 \strokec3  \uc0\u9474   \cf4 \strokec4 '217.1712328767123288'\cf0 \strokec3   \uc0\u9474  \cf4 \strokec4 '9806.116438356164383528'\cf0 \strokec3   \uc0\u9474                                                                        \
+\uc0\u9474    18    \u9474  \cf7 \strokec7 18\cf0 \strokec3   \uc0\u9474  \cf4 \strokec4 '10024.657534246575342465'\cf0 \strokec3  \uc0\u9474  \cf4 \strokec4 '200.493150684931506849'\cf0 \strokec3  \uc0\u9474  \cf4 \strokec4 '9824.164383561643835616'\cf0 \strokec3   \uc0\u9474                                                                        \
+\uc0\u9474    19    \u9474  \cf7 \strokec7 19\cf0 \strokec3   \uc0\u9474  \cf4 \strokec4 '10026.027397260273972602'\cf0 \strokec3  \uc0\u9474  \cf4 \strokec4 '183.810502283105022897'\cf0 \strokec3  \uc0\u9474  \cf4 \strokec4 '9842.216894977168949705'\cf0 \strokec3   \uc0\u9474                                                                        \
+\uc0\u9474    20    \u9474  \cf7 \strokec7 20\cf0 \strokec3   \uc0\u9474  \cf4 \strokec4 '10027.397260273972602739'\cf0 \strokec3  \uc0\u9474  \cf4 \strokec4 '167.123287671232876745'\cf0 \strokec3  \uc0\u9474  \cf4 \strokec4 '9860.273972602739725994'\cf0 \strokec3   \uc0\u9474                                                                        \
+\uc0\u9474    21    \u9474  \cf7 \strokec7 21\cf0 \strokec3   \uc0\u9474  \cf4 \strokec4 '10028.767123287671232876'\cf0 \strokec3  \uc0\u9474  \cf4 \strokec4 '150.431506849315068493'\cf0 \strokec3  \uc0\u9474  \cf4 \strokec4 '9878.335616438356164383'\cf0 \strokec3   \uc0\u9474                                                                        \
+\uc0\u9474    22    \u9474  \cf7 \strokec7 22\cf0 \strokec3   \uc0\u9474  \cf4 \strokec4 '10030.136986301369863013'\cf0 \strokec3  \uc0\u9474  \cf4 \strokec4 '133.73515981735159824'\cf0 \strokec3   \uc0\u9474  \cf4 \strokec4 '9896.401826484018264773'\cf0 \strokec3   \uc0\u9474                                                                        \
+\uc0\u9474    23    \u9474  \cf7 \strokec7 23\cf0 \strokec3   \uc0\u9474  \cf4 \strokec4 '10031.50684931506849315'\cf0 \strokec3   \uc0\u9474  \cf4 \strokec4 '117.034246575342465786'\cf0 \strokec3  \uc0\u9474  \cf4 \strokec4 '9914.472602739726027364'\cf0 \strokec3   \uc0\u9474                                                                        \
+\uc0\u9474    24    \u9474  \cf7 \strokec7 24\cf0 \strokec3   \uc0\u9474  \cf4 \strokec4 '10032.876712328767123287'\cf0 \strokec3  \uc0\u9474  \cf4 \strokec4 '100.328767123287671232'\cf0 \strokec3  \uc0\u9474  \cf4 \strokec4 '9932.547945205479452055'\cf0 \strokec3   \uc0\u9474                                                                        \
+\uc0\u9474    25    \u9474  \cf7 \strokec7 25\cf0 \strokec3   \uc0\u9474  \cf4 \strokec4 '10034.246575342465753424'\cf0 \strokec3  \uc0\u9474  \cf4 \strokec4 '83.618721461187214678'\cf0 \strokec3   \uc0\u9474  \cf4 \strokec4 '9950.627853881278538746'\cf0 \strokec3   \uc0\u9474                                                                        \
+\uc0\u9474    26    \u9474  \cf7 \strokec7 26\cf0 \strokec3   \uc0\u9474  \cf4 \strokec4 '10035.616438356164383561'\cf0 \strokec3  \uc0\u9474  \cf4 \strokec4 '66.904109589041095923'\cf0 \strokec3   \uc0\u9474  \cf4 \strokec4 '9968.712328767123287638'\cf0 \strokec3   \uc0\u9474                                                                        \
+\uc0\u9474    27    \u9474  \cf7 \strokec7 27\cf0 \strokec3   \uc0\u9474  \cf4 \strokec4 '10036.986301369863013698'\cf0 \strokec3  \uc0\u9474  \cf4 \strokec4 '50.184931506849315068'\cf0 \strokec3   \uc0\u9474   \cf4 \strokec4 '9986.80136986301369863'\cf0 \strokec3   \uc0\u9474                                                                        \
+\uc0\u9474    28    \u9474  \cf7 \strokec7 28\cf0 \strokec3   \uc0\u9474  \cf4 \strokec4 '10038.356164383561643835'\cf0 \strokec3  \uc0\u9474  \cf4 \strokec4 '33.461187214611872213'\cf0 \strokec3   \uc0\u9474  \cf4 \strokec4 '10004.894977168949771622'\cf0 \strokec3  \uc0\u9474                                                                        \
+\uc0\u9474    29    \u9474  \cf7 \strokec7 29\cf0 \strokec3   \uc0\u9474  \cf4 \strokec4 '10039.726027397260273972'\cf0 \strokec3  \uc0\u9474  \cf4 \strokec4 '16.732876712328767156'\cf0 \strokec3   \uc0\u9474  \cf4 \strokec4 '10022.993150684931506816'\cf0 \strokec3  \uc0\u9474                                                                        \
+\uc0\u9474    30    \u9474  \cf7 \strokec7 30\cf0 \strokec3   \uc0\u9474  \cf4 \strokec4 '10041.095890410958904109'\cf0 \strokec3  \uc0\u9474           \cf4 \strokec4 '0.0'\cf0 \strokec3            \uc0\u9474  \cf4 \strokec4 '10041.095890410958904109'\cf0 \strokec3  \uc0\u9474                                                                        \
+\uc0\u9474    31    \u9474  \cf7 \strokec7 31\cf0 \strokec3   \uc0\u9474  \cf4 \strokec4 '10041.095890410958904109'\cf0 \strokec3  \uc0\u9474           \cf4 \strokec4 '0.0'\cf0 \strokec3            \uc0\u9474  \cf4 \strokec4 '10041.095890410958904109'\cf0 \strokec3  \uc0\u9474                                                                        \
+\uc0\u9474    32    \u9474  \cf7 \strokec7 32\cf0 \strokec3   \uc0\u9474  \cf4 \strokec4 '10041.095890410958904109'\cf0 \strokec3  \uc0\u9474           \cf4 \strokec4 '0.0'\cf0 \strokec3            \uc0\u9474  \cf4 \strokec4 '10041.095890410958904109'\cf0 \strokec3  \uc0\u9474                                                                        \
+\uc0\u9474    33    \u9474  \cf7 \strokec7 33\cf0 \strokec3   \uc0\u9474  \cf4 \strokec4 '10041.095890410958904109'\cf0 \strokec3  \uc0\u9474           \cf4 \strokec4 '0.0'\cf0 \strokec3            \uc0\u9474  \cf4 \strokec4 '10041.095890410958904109'\cf0 \strokec3  \uc0\u9474                                                                        \
+\uc0\u9474    34    \u9474  \cf7 \strokec7 34\cf0 \strokec3   \uc0\u9474  \cf4 \strokec4 '10041.095890410958904109'\cf0 \strokec3  \uc0\u9474           \cf4 \strokec4 '0.0'\cf0 \strokec3            \uc0\u9474  \cf4 \strokec4 '10041.095890410958904109'\cf0 \strokec3  \uc0\u9474                                                                        \
+\uc0\u9474    35    \u9474  \cf7 \strokec7 35\cf0 \strokec3   \uc0\u9474  \cf4 \strokec4 '10041.095890410958904109'\cf0 \strokec3  \uc0\u9474           \cf4 \strokec4 '0.0'\cf0 \strokec3            \uc0\u9474  \cf4 \strokec4 '10041.095890410958904109'\cf0 \strokec3  \uc0\u9474                                                                        \
+\uc0\u9474    36    \u9474  \cf7 \strokec7 36\cf0 \strokec3   \uc0\u9474  \cf4 \strokec4 '10041.095890410958904109'\cf0 \strokec3  \uc0\u9474           \cf4 \strokec4 '0.0'\cf0 \strokec3            \uc0\u9474  \cf4 \strokec4 '10041.095890410958904109'\cf0 \strokec3  \uc0\u9474                                                                        \
+\uc0\u9474    37    \u9474  \cf7 \strokec7 37\cf0 \strokec3   \uc0\u9474  \cf4 \strokec4 '10041.095890410958904109'\cf0 \strokec3  \uc0\u9474           \cf4 \strokec4 '0.0'\cf0 \strokec3            \uc0\u9474  \cf4 \strokec4 '10041.095890410958904109'\cf0 \strokec3  \uc0\u9474                                                                        \
+\uc0\u9474    38    \u9474  \cf7 \strokec7 38\cf0 \strokec3   \uc0\u9474  \cf4 \strokec4 '10041.095890410958904109'\cf0 \strokec3  \uc0\u9474           \cf4 \strokec4 '0.0'\cf0 \strokec3            \uc0\u9474  \cf4 \strokec4 '10041.095890410958904109'\cf0 \strokec3  \uc0\u9474                                                                        \
+\uc0\u9474    39    \u9474  \cf7 \strokec7 39\cf0 \strokec3   \uc0\u9474  \cf4 \strokec4 '10041.095890410958904109'\cf0 \strokec3  \uc0\u9474           \cf4 \strokec4 '0.0'\cf0 \strokec3            \uc0\u9474  \cf4 \strokec4 '10041.095890410958904109'\cf0 \strokec3  \uc0\u9474                                                                        \
+\uc0\u9474    40    \u9474  \cf7 \strokec7 40\cf0 \strokec3   \uc0\u9474  \cf4 \strokec4 '10041.095890410958904109'\cf0 \strokec3  \uc0\u9474           \cf4 \strokec4 '0.0'\cf0 \strokec3            \uc0\u9474  \cf4 \strokec4 '10041.095890410958904109'\cf0 \strokec3  \uc0\u9474                                                                        \
+\uc0\u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9524 \u9472 \u9472 \u9472 \u9472 \u9472 \u9524 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9524 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9524 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496                                                                        \
+\
+- 1 ay s\'fcreyle 10000 token stake edilmi\uc0\u351  ve sim\'fclasyonla 1 g\'fcn s\'fcre aral\u305 klarla mevcut kazan\'e7 durumu sorgulanm\u305 \u351  ve yukar\u305 daki tablodaki sonu\'e7lar elde edilmi\u351 tir.\
+- Stake getirisinin her g\'fcn APY oran\uc0\u305 na uygun olarak artt\u305 \u287 \u305 , penalty tax\'92in APY oran\u305 na uygun olarak azald\u305 \u287 \u305  ve stake s\'fcresi sonunda getiri art\u305 \u351 \u305 n\u305 n ve penalty tax\'92in sabit kald\u305 \u287 \u305  g\'f6zlemlenmi\u351 tir.\
+\
+    \cf4 \strokec4   
+\f1 \cf4 \strokec4 \uc0\u10004 
+\f0 \cf5 \strokec5  applies decreasing percentage of penalty fee on for emergency withdraw\cf6 \strokec6  (257ms)\cf0 \strokec3                                                                                        \
+                                                                                                                                                                             \
+                                                                                                                                                                             \
+#########################################                                                                                                                                    \
+ withdraw function                                                                                                                                                           \
+#########################################                                                                                                                                    \
+\
+- 1 ay s\'fcreyle 10000 token stake edilmi\uc0\u351 , sim\'fclasyonla 15 g\'fcn ge\'e7mesi sa\u287 lanm\u305 \u351  ve withdraw yap\u305 lmas\u305  denenindi\u287 inde \'93Early request\'94 hatas\u305  d\'f6nd\'fc\u287 \'fc g\'f6zlemlenmi\u351 tir.\
+\
+    \cf4 \strokec4   
+\f1 \cf4 \strokec4 \uc0\u10004 
+\f0 \cf5 \strokec5  reverts withdrawing before release date\cf6 \strokec6  (83ms)\cf0 \strokec3                                                                                                                        \
+\
+\
+- 50000 token olan bir hesapla 1 ay s\'fcreyle 10000 token stake edilmi\uc0\u351 , sim\'fclasyonla 30 g\'fcn ge\'e7mesi sa\u287 lanm\u305 \u351  ve withdraw fonksiyonu \'e7a\u287 \u305 r\u305 ld\u305 \u287 \u305 nda kullan\u305 c\u305  balans\u305 n\u305 n 50041.09\'92a y\'fckseldi\u287 i g\'f6zlemlenmi\u351 tir.\
+\
+    \cf4 \strokec4   
+\f1 \cf4 \strokec4 \uc0\u10004 
+\f0 \cf5 \strokec5  accepts withdrawing if everything is ok\cf6 \strokec6  (179ms)\cf0 \strokec3                                                                                                                      \
+\
+\
+\
+- Unstake edilmi\uc0\u351  bir stake kayd\u305  i\'e7in yeniden withdraw iste\u287 inde bulunulmu\u351  ve \'93Stake already withdrawn\'94 hatas\u305  d\'f6nd\'fc\u287 \'fc g\'f6zlemlenmi\u351 tir.\
+                                                                                                                                                                             \
+    \cf4 \strokec4   
+\f1 \cf4 \strokec4 \uc0\u10004 
+\f0 \cf5 \strokec5  reverts withdrawing if the stake has already withdrawn\cf6 \strokec6  (179ms)\cf0 \strokec3                                                                                                        \
+                                                                                                                                                                             \
+                                                                                                                                                                             \
+#########################################                                                                                                                                    \
+ emergencyWithdraw function                                                                                                                                                  \
+#########################################                                                                                                                                    \
+\
+\
+- 1 ay s\'fcreyle 10000 token stake edilmi\uc0\u351  ve sim\'fclasyonla 30 g\'fcn ge\'e7mesi sa\u287 land\u305 ktan sonra emergency withdraw denemesi yap\u305 ld\u305 \u287 \u305 nda \'93Can withdraw normal\'94 hatas\u305  d\'f6nd\'fc\u287 \'fc g\'f6zlemlenmi\u351 tir.\
+                                                                                         \
+    \cf4 \strokec4   
+\f1 \cf4 \strokec4 \uc0\u10004 
+\f0 \cf5 \strokec5  reverts emergency withdrawing after release date\cf6 \strokec6  (89ms)\cf0 \strokec3                                                                                                               \
+\
+\
+-\outl0\strokewidth0  50000 token olan bir hesapla 1 ay s\'fcreyle 10000 token stake edilmi\uc0\u351  ve sim\'fclasyonla 15 g\'fcn ge\'e7mesi sa\u287 land\u305 ktan sonra emergency withdraw denemesi yap\u305 ld\u305 \u287 \u305 nda, o ana kadar olan kazan\u305 ma do\u287 ru miktarda penalty tax uyguland\u305 \u287 \u305  ve son balans\u305 n 49770.03 oldu\u287 u g\'f6zlemlenmi\u351 tir.\
+\outl0\strokewidth0 \
+    \cf4 \strokec4   
+\f1 \cf4 \strokec4 \uc0\u10004 
+\f0 \cf5 \strokec5  accepts emergency withdrawing if everything is ok\cf6 \strokec6  (123ms)\cf0 \strokec3                                                                                                            \
+\
+\
+\
+- 10000 token 1 ay s\'fcreyle stake edilmi\uc0\u351  ve sim\'fclasyonla 15 g\'fcn ge\'e7mesi sa\u287 land\u305 ktan sonra emergency withdraw yap\u305 ld\u305 \u287 \u305 nda token total supply\'92\u305 n\u305 n 300 milyondan \outl0\strokewidth0 2999999749.48\'92e d\'fc\uc0\u351 t\'fc\u287 \'fc g\'f6zlemlenmi\u351 tir.\
+\outl0\strokewidth0 \
+    \cf4 \strokec4   
+\f1 \cf4 \strokec4 \uc0\u10004 
+\f0 \cf5 \strokec5  burns tokens with amount of penalty on emergency withdrawing\cf6 \strokec6  (113ms)\cf0 \strokec3                                                                                                  \
+                                                                                                                                                                             \
+                          \
+}

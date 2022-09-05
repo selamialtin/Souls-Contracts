@@ -1,0 +1,192 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2636
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fmodern\fcharset0 CourierNewPSMT;\f1\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red255\green255\blue255;\red0\green0\blue0;\red91\green246\blue7;
+\red50\green50\blue50;\red251\green50\blue50;\red212\green241\blue64;}
+{\*\expandedcolortbl;;\cssrgb\c100000\c100000\c100000\c0;\cssrgb\c0\c0\c0;\cssrgb\c40187\c95024\c0;
+\cssrgb\c25546\c25546\c25482;\cssrgb\c99933\c29618\c25054;\cssrgb\c85905\c94053\c31464;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww40920\viewh24580\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs28 \cf0 \cb2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 \
+\pard\pardeftab720\partightenfactor0
+\cf0   Managers Contract    \
+\
+- Contract deploy edilirken 5 tane manager adresi tan\uc0\u305 mlanarak deploy edilmi\u351 tir. \
+- Kontrat \'fcst\'fcnde bu adresler s\uc0\u305 ras\u305 yla; manager1, manager2, manager3, manager4 ve manager5 olarak tan\u305 mlanm\u305 \u351 t\u305 r.                                                                                 \
+                                                                                                           \
+                                                                                                           \
+#########################################                                                                  \
+addAddressToTrustedSources function                                                                        \
+#########################################    \
+ \
+\pard\pardeftab720\partightenfactor0
+\cf0 \outl0\strokewidth0 NOT: G\'fcvenilir adresler bu contract \'fczerindeki oylama sistemine eri\uc0\u351 ebilen contract adreslerini ifade etmektedir. Manager hesaplar dahil hi\'e7 bir c\'fczdan bu contract \'fczerindeki oylama sistemine do\u287 rudan eri\u351 im sa\u287 layamaz. Bu listeye yeni adresler sadece proxy contract taraf\u305 ndan eklenebilir ve gerekli olan b\'fct\'fcn adresler deployment s\u305 ras\u305 nda otomatik olarak eklenmi\u351  olacakt\u305 r.\
+\
+\
+- Managers kontrat\uc0\u305 n\u305 n owner adresinin proxy kontrat adresi oldu\u287 u g\'f6zlemlenmi\u351 tir.\
+- Yeni trusted source ekleme fonksiyonu herhangi bir c\'fczdanla \'e7a\uc0\u287 \u305 r\u305 ld\u305 \u287 \u305 nda beklendi\uc0\u287 i gibi \'93Ownable: caller is not the owner\'94 hatas\uc0\u305  d\'f6nd\'fcrd\'fc\u287 \'fc, \
+- Proxy kontrat\uc0\u305  \'fczerinden fonksiyon \'e7a\u287 \u305 r\u305 ld\u305 \u287 \u305 nda parametre olarak g\'f6nderilen adresin trusted source olarak eklendi\u287 i g\'f6zlemlenmi\u351 tir.\
+\outl0\strokewidth0                                                              \
+\pard\pardeftab720\partightenfactor0
+\cf0     \cf4 \strokec4   
+\f1 \cf4 \strokec4 \uc0\u10004 
+\f0 \cf5 \strokec5  Only proxy can add an address to trusted sources\cf6 \strokec6  (103ms)\cf0 \strokec3                                            \
+                                                                                                           \
+                                                                                                           \
+#########################################                                                                  \
+isManager function                                                                                         \
+#########################################    \
+\
+NOT: Parametre olarak g\'f6nderilen adresin bir manager hesap olmas\uc0\u305  durumunda \'93true\'94, aksi halde \'93false\'94 d\'f6nd\'fcren fonksiyondur.\
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 \outl0\strokewidth0 - Parametre olarak rastgele bir adres g\'f6nderilmi\uc0\u351  ve \'93false\'94 sonucu d\'f6nd\'fc\u287 \'fc,\
+- Parametre olarak t\'fcm manager adresleri s\uc0\u305 rayla g\'f6nderilmi\u351  ve hepsi i\'e7in \'93true\'94 sonucu d\'f6nd\'fc\u287 \'fc g\'f6zlemlenmi\u351 tir.\
+\pard\pardeftab720\partightenfactor0
+\cf0 \outl0\strokewidth0                                                               \
+    \cf4 \strokec4   
+\f1 \cf4 \strokec4 \uc0\u10004 
+\f0 \cf5 \strokec5  returns true only for manager addresses\cf0 \strokec3                                                             \
+                                                                                                           \
+                                                                                                           \
+#########################################                                                                  \
+approveTopic function                                                                                      \
+#########################################    \
+                                              \
+NOT: Bir konunun manager hesaplar taraf\uc0\u305 ndan oylanmas\u305 n\u305  sa\u287 layan fonksiyondur. \
+\
+\
+- Yetkisiz bir c\'fczdan taraf\uc0\u305 ndan do\u287 rudan kontrata y\'f6nelik \'e7a\u287 \u305 r\u305 ld\u305 \u287 \u305 nda \'93ONLY MANAGERS: Not authorized\'94 hatas\u305  d\'f6nd\'fc\u287 \'fc,\
+- Bir manager c\'fczdan ile do\uc0\u287 rudan kontrata y\'f6nelik \'e7a\u287 \u305 r\u305 ld\u305 \u287 \u305 nda \'93MANAGERS: Untrusted source\'94 hatas\u305  d\'f6nd\'fc\u287 \'fc,\
+- G\'fcvenilir bir kontrat \'fczerinden manager olmayan hesapla \'e7a\uc0\u287 \u305 r\u305 ld\u305 \u287 \u305 nda \'93ONLY MANAGERS: Not authorized\'94 hatas\u305  d\'f6nd\'fc\u287 \'fc,\
+- G\'fcvenilir bir kontrat \'fczerinden manager bir hesapla \'e7a\uc0\u287 \u305 r\u305 ld\u305 \u287 \u305 nda oylanan konulara \'93Proxy: Test Approve Topic Function\'94 ba\u351 l\u305 \u287 \u305 n\u305  ekledi\u287 i g\'f6zlemlenmi\u351 tir.\
+\
+    \cf4 \strokec4   
+\f1 \cf4 \strokec4 \uc0\u10004 
+\f0 \cf5 \strokec5  only trusted sources can approve a topic and tx.origin must be a manager\cf6 \strokec6  (407ms)\cf0 \strokec3   \
+\
+\
+\
+- Manager hesap taraf\uc0\u305 ndan bir fonksiyon ilk defa oyland\u305 \u287 \u305 nda managers kontrat\u305 nda activeTopics listesine eklendi\u287 i g\'f6zlemlenmi\u351 tir.                 \
+\
+    \cf4 \strokec4   
+\f1 \cf4 \strokec4 \uc0\u10004 
+\f0 \cf5 \strokec5  adds topic to list when approved by a manager\cf6 \strokec6  (175ms)\cf0 \strokec3                                               \
+\
+\
+- Test fonksiyonu manager1 ve manager2 taraf\uc0\u305 ndan parametre olarak rastgele \'fcretilen bir adres g\'f6nderilerek \'e7a\u287 \u305 r\u305 lm\u305 \u351 , ard\u305 ndan manager3 taraf\u305 ndan parametre olarak rastgele \'fcretilen ayr\u305  bir adres g\'f6nderilerek \'e7a\u287 \u305 r\u305 lm\u305 \u351  ve parametre farkl\u305  oldu\u287 undan dolay\u305  hen\'fcz bir de\u287 i\u351 iklik olmad\u305 \u287 \u305 ,\
+- Manager4 taraf\uc0\u305 ndan parametre olarak manager1 ve manager2 taraf\u305 ndan kullan\u305 lan adres g\'f6nderildi\u287 inde ayn\u305  parametreyi oylayan manager say\u305 s\u305  3 oldu\u287 undan parametre olarak g\'f6nderilen adresin test de\u287 i\u351 kenine aktar\u305 ld\u305 \u287 \u305  g\'f6zlemlenmi\u351 tir.\
+\
+    \cf4 \strokec4   
+\f1 \cf4 \strokec4 \uc0\u10004 
+\f0 \cf5 \strokec5  approves topic if approved by 3 of managers\cf6 \strokec6  (708ms)\cf0 \strokec3                \
+\
+\
+- Test fonksiyonu ayn\uc0\u305  parametre ile 3 admin taraf\u305 ndan \'e7a\u287 \u305 r\u305 lm\u305 \u351  ve ilgili parametre test de\u287 i\u351 kenine aktar\u305 ld\u305 ktan sonra managers kontrat\u305  \'fczerinde activeTopics listesinden konunun silindi\u287 i g\'f6zlemlenmi\u351 tir.        \
+                         \
+    \cf4 \strokec4   
+\f1 \cf4 \strokec4 \uc0\u10004 
+\f0 \cf5 \strokec5  removes topic from list when approved by 3 of managers\cf6 \strokec6  (522ms)\cf0 \strokec3                                      \
+                                                                                                           \
+                                                                                                           \
+#########################################                                                                  \
+cancelTopicApproval function                                                                               \
+#########################################   \
+\
+NOT: Manager hesaplar\uc0\u305 n bir konuda yapt\u305 \u287 \u305  oylamay\u305  iptal etmesini sa\u287 layan fonksiyondur.\
+\
+- Manager1 taraf\uc0\u305 ndan hi\'e7 olmayan bir ba\u351 l\u305 k i\'e7in iptal etme iste\u287 i g\'f6nderilmi\u351  ve \'93Topic not found\'94 hatas\u305  d\'f6nd\'fc\u287 \'fc g\'f6zlemlenmi\u351 tir.                                                               \
+\
+    \cf4 \strokec4   
+\f1 \cf4 \strokec4 \uc0\u10004 
+\f0 \cf5 \strokec5  reverts if title not exists\cf0 \strokec3                                                                         \
+\
+\
+- Manager1 taraf\uc0\u305 ndan bir konu oylanm\u305 \u351  ve ilgili ba\u351 l\u305 k managers kontrat\u305 nda a\'e7\u305 lm\u305 \u351 ,\
+- Manager2 hen\'fcz oylama yapmad\uc0\u305 \u287 \u305  bu konuda oyunu iptal etme talebinde bulunmu\u351  ve \'93Topic not approved by manager\'94 hatas\u305  d\'f6nd\'fc\u287 \'fc g\'f6zlemlenmi\u351 tir.\
+\
+    \cf4 \strokec4   
+\f1 \cf4 \strokec4 \uc0\u10004 
+\f0 \cf5 \strokec5  reverts if manager didn't voted title\cf6 \strokec6  (153ms)\cf0 \strokec3                                                       \
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 \outl0\strokewidth0 - Manager1 taraf\uc0\u305 ndan bir konu oylanm\u305 \u351  ve ilgili ba\u351 l\u305 k managers kontrat\u305 nda a\'e7\u305 lm\u305 \u351  ve kontrattan manager1\'92in konu ile ilgili oy durumu sorguland\uc0\u305 \u287 \u305 nda \'93true\'94 oldu\u287 u g\'f6zlemlenmi\u351 tir.\
+\
+- Manager1 taraf\uc0\u305 ndan a\'e7\u305 lan konu i\'e7in oyunu iptal etme iste\u287 i g\'f6nderilmi\u351  ve kontrattan manager1\'92in konu ile ilgili oy durumu sorguland\u305 \u287 \u305 nda \'93false\'94 oldu\u287 u g\'f6zlemlenmi\u351 tir.\
+\pard\pardeftab720\partightenfactor0
+\cf0 \outl0\strokewidth0 \
+    \cf4 \strokec4   
+\f1 \cf4 \strokec4 \uc0\u10004 
+\f0 \cf5 \strokec5  cancels manager's vote if voted (also tests _deleteTopic internal function)\cf6 \strokec6  (240ms)\cf0 \strokec3                 \
+\
+\
+- Manager1 ve Manager2 taraf\uc0\u305 ndan ayn\u305  konu i\'e7in oy kullan\u305 lm\u305 \u351 ,\
+- Manager1 ve Manager2 taraf\uc0\u305 ndan verilen oylar iptal edildi\u287 inde activeTopics listesinin bo\u351 ald\u305 \u287 \u305  g\'f6zlemlenmi\u351 tir.\
+\
+    \cf4 \strokec4   
+\f1 \cf4 \strokec4 \uc0\u10004 
+\f0 \cf5 \strokec5  removes from topic list if all the managers canceled their votes\cf6 \strokec6  (408ms)\cf0 \strokec3                            \
+                                                                                                           \
+                                                                                                           \
+#########################################                                                                  \
+changeManagerAddress function                                                                              \
+#########################################    \
+\
+NOT: 3 manager adres taraf\uc0\u305 ndan oylanmas\u305  durumunda di\u287 er bir manager\'92a ait adresi de\u287 i\u351 tiren fonksiyondur.\
+                                                              \
+\
+- Manager1 taraf\uc0\u305 ndan kendi adresini de\u287 i\u351 tirme iste\u287 i g\'f6nderilmi\u351  ve \'93Cannot approve to set own address\'94 hatas\u305  d\'f6nd\'fc\u287 \'fc g\'f6zlemlenmi\u351 tir.\
+\
+    \cf4 \strokec4   
+\f1 \cf4 \strokec4 \uc0\u10004 
+\f0 \cf5 \strokec5  reverts if try to change own address\cf0 \strokec3                                                                \
+\
+\
+- Manager2, Manager3 ve Manager4 taraf\uc0\u305 ndan Manager1 adresi de\u287 i\u351 tirilme iste\u287 inde bulunulmu\u351  ve Manager1\'92in adresinin parametre olarak g\'f6nderilen yeni adrese de\u287 i\u351 tirildi\u287 i g\'f6zlemlenmi\u351 tir.\
+\
+    \cf4 \strokec4   
+\f1 \cf4 \strokec4 \uc0\u10004 
+\f0 \cf5 \strokec5  changes if approved same address by 3 other managers\cf6 \strokec6  (172ms)\cf0 \strokec3                                        \
+                                                                                                           \
+                                                                                                           \
+\pard\pardeftab720\partightenfactor0
+\cf7 \strokec7  \cf4 \strokec4  12 passing\cf5 \strokec5  (16s)\cf0 \strokec3    \
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+                                                                                      \
+                                                                                \
+}
